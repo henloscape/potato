@@ -24,8 +24,8 @@ make_metalava(){
 }
 
 make_rom(){
-	m otapackage -j16 
-	zip=$(up out/target/product/lava/Arrow-v11.0*zip)
+	m bacon -j16 
+	zip=$(up out/target/product/lava/Arrow-*zip)
 	echo " "
 	echo "$zip"
 }

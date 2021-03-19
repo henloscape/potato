@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url=https://cheems.mirrorbomt.workers.dev/ccache.tar.gz
+url=https://transfer.sh/DFGgO/ccache.tar.gz
 
 
 cd /tmp # Where to download cccahe

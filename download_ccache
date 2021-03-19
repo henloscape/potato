@@ -1,7 +1,6 @@
 #!/bin/bash
 
-url=https://transfer.sh/DFGgO/ccache.tar.gz
-
+url=https://drive.officialmirror.workers.dev/ccache.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50

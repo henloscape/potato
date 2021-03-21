@@ -1,7 +1,7 @@
 #!/bin/bash
 
-MANIFEST=git://github.com/ArrowOS/android_manifest.git
-BRANCH=arrow-11.0
+MANIFEST=git://github.com/PotatoProject/manifest
+BRANCH=dumaloo-release
 
 mkdir -p /tmp/rom
 cd /tmp/rom
@@ -14,6 +14,6 @@ git config --global user.email vixanonew@gmail.com
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
-git clone https://github.com/henloscape/device_xiaomi_lava -b arrow-11 device/xiaomi/lava 
+git clone https://github.com/henloscape/device_xiaomi_lava -b potato device/xiaomi/lava 
 git clone https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava vendor/xiaomi/lava 
 bash device/xiaomi/lava/vendorsetup.sh 

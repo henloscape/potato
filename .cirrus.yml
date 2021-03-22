@@ -1,7 +1,7 @@
 env: # Environt variable to pass to all tasks
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone repo
-    rclone_config: "ENCRYPTED[ad333dd506b7527f4577e2d14dff5c6766e438feea8186ce4b5485f8dad89cae10f94c6a777646f388a0c1aac65c39a5]"
+    token: "ENCRYPTED[2a784dd83c9427bf3a371498312e9df9f016aee7db38653777dd111c29b01b9a8139abaf7f8e9d7c86332002a679a034]"
 
 task:
     name: POSP

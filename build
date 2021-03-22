@@ -13,6 +13,24 @@ ccache -M 20G
 ccache -o compression=true
 ccache -z
 
+romzip=$(echo out/target/product/lava/potato_lava*.zip)
+
+function push() {
+    curl -F document=@$romzip "https://api.telegram.org/bot$token/sendDocument" \
+        -F chat_id="-1001417732296" \
+        -F "disable_web_page_preview=true" \
+        -F "parse_mode=html" \
+        -F caption="POSP Build finished on $(date) | For <b>Redmi 9 / Poco M2 (lava)</b> | @mango_ci "
+}
+
+function start() {
+    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
+        -d chat_id="-1001417732296" \
+        -d "disable_web_page_preview=true" \
+        -d "parse_mode=html" \
+        -d text="<b>• POSP Community •</b>%0ABuild started on <code>Jamie's buildbot</code>%0A <b>lava</b> <i>$DEVICE</i>%0A <b>Build Status:</b> #BETA"
+}
+
 up(){
 	curl --upload-file $1 https://transfer.sh/
 }
@@ -24,12 +42,12 @@ make_metalava(){
 }
 
 make_rom(){
-	make -j16
-	zip=$(up out/target/product/lava/Arrow-v11.0*zip)
+	mka potato -j16
+	zip=$(up out/target/product/lava/Arrow-v11.0*zip | grep -i transfer.sh)
 	echo " "
 	echo "$zip"
 }
 
 make_metalava
 make_rom &
-sleep 4750 && kill "$!"
+sleep 4800 && kill "$!"

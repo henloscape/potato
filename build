@@ -24,7 +24,7 @@ make_metalava(){
 }
 
 make_rom(){
-	brunch lava 
+	make -j16
 	zip=$(up out/target/product/lava/Arrow-v11.0*zip)
 	echo " "
 	echo "$zip"
